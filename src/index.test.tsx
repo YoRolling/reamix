@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import Icon from '.'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(Icon).toBeTruthy()
   })
 })
