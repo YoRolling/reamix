@@ -13,7 +13,7 @@ const rl = readLine.createInterface({
 })
 const sizes = []
 const icons = []
-const iconStyles = new Set()
+const iconStyles = new Set(['fill', 'line'])
 rl.on('line', (line) => {
   iconReg.lastIndex = 0
   if (iconReg.test(line)) {
@@ -23,8 +23,11 @@ rl.on('line', (line) => {
       const {
         groups: { icon, style }
       } = result
-      icons.push(icon)
-      iconStyles.add(style)
+      if (iconStyles.has(style)) {
+        icons.push(icon)
+      } else {
+        icons.push(`${icon}-${style}`)
+      }
     }
   }
   sizeReg.lastIndex = 0
